@@ -1,0 +1,56 @@
+@import "vars.css";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background: var(--primary);
+    color: var(--background);
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+main {
+    max-width: 50rem;
+    margin: 3rem auto 0 auto;
+}
+
+#catalog {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.item {
+    width: 15em;
+    background-color: var(--faint);
+    padding: 0.6em;
+    box-shadow: 0.2em 0.2em 0.1em #eee;
+    border-radius: 1em;
+}
+
+.item-image {
+    aspect-ratio: 4/3;
+}
+
+.item-description {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em 0.3em 0 0.3em;
+}
+
+button:disabled {
+    background-color: var(--contrast);
+    color: white;
+    font-size: 1.5rem;
+}
