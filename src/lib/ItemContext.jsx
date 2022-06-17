@@ -59,15 +59,15 @@ export default function ItemContextProvider({ children }) {
     const store = { loading: isLoading, items: items };
 
     useEffect(() => {
-        setTimeout(() => {
-            setItems(testItems);
-            setIsLoading(false);
-        }, 500);
-        // fetch("url")
-        //     .then((res) => res.json())
-        //     .then((fetchedItems) => setItems(fetchedItems))
-        //     .catch((err) => console.log(err))
-        //     .finally(setIsLoading(false));
+        // setTimeout(() => {
+        //     setItems(testItems);
+        //     setIsLoading(false);
+        // }, 500);
+        fetch("http://localhost:8000/items")
+            .then((res) => res.json())
+            .then((fetchedItems) => setItems(fetchedItems))
+            .catch((err) => console.log(err))
+            .finally(setIsLoading(false));
     }, []);
 
     return <ItemContext.Provider value={store}>{children}</ItemContext.Provider>;

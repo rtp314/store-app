@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 import BasketItem from "./BasketItem";
 import { BasketContext } from "../lib/BasketContext";
-import { ReactComponent as BasketIcon } from "../images/cart-svgrepo-com.svg";
+import { ReactComponent as BasketIcon } from "../icons/cart-svgrepo-com.svg";
 
 export default function Basket() {
     const { basketItems, dispatch } = useContext(BasketContext);
@@ -22,6 +22,20 @@ export default function Basket() {
                 window.addEventListener("click", clickAway);
             }, 100);
         }
+    }
+
+    function handleCheckout() {
+        const request = basketItems.map((item) => {
+            return { id: item.id, quantity: item.quantity };
+        });
+        fetch("http://localhost:8000/create-stripe-session", {
+            method: "POST",
+            body: JSON.stringify(request),
+            headers: { "Content-Type": "application/json" },
+        })
+            .then((res) => res.json())
+            .then((res) => (window.location = res))
+            .catch((err) => console.log(err));
     }
 
     return (
@@ -50,7 +64,7 @@ export default function Basket() {
                     ) : (
                         "No items in cart"
                     )}
-                    <button className='btn' disabled={basketItems.length > 0 ? false : true}>
+                    <button className='btn' onClick={handleCheckout} disabled={basketItems.length > 0 ? false : true}>
                         Checkout
                     </button>
                 </div>
