@@ -26,8 +26,8 @@ export default function Basket() {
 
     return (
         <>
-            <div id='basket' onClick={openBasketDetails}>
-                <BasketIcon id='basket-icon' />
+            <div id='basket' className='flex-row' onClick={openBasketDetails}>
+                Cart <BasketIcon id='basket-icon' />
             </div>
             {openBasket && (
                 <div ref={basketDetailsRef} id='basket-details'>
@@ -48,9 +48,9 @@ export default function Basket() {
                             <span></span>
                         </div>
                     ) : (
-                        "No items in basket"
+                        "No items in cart"
                     )}
-                    <button className={"basket-checkout"} disabled={basketItems.length > 0 ? "false" : "true"}>
+                    <button className='btn' disabled={basketItems.length > 0 ? false : true}>
                         Checkout
                     </button>
                 </div>

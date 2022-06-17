@@ -8,7 +8,7 @@ export default function BasketItem({ item, dispatch }) {
     return (
         <>
             {item.imgSrc ? (
-                <img className='basket-image' src={item.imgSrc} />
+                <img className='item-image' src={item.imgSrc} />
             ) : (
                 <div className='basket-image' style={{ background: item.imgColor }}>
                     No Image

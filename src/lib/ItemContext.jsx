@@ -7,6 +7,7 @@ const testItems = [
         priceInCents: 15000,
         imgColor: "blue",
         description: "Is it a rocket or is it a plane? Yes.",
+        imgSrc: "/images/tb1.webp",
     },
     {
         id: 2,
@@ -14,6 +15,7 @@ const testItems = [
         priceInCents: 27500,
         imgColor: "green",
         description: "Totally the best Thunderbird. Iconic.",
+        imgSrc: "/images/tb2.webp",
     },
     {
         id: 3,
@@ -21,6 +23,7 @@ const testItems = [
         priceInCents: 16000,
         imgColor: "red",
         description: "Criminally underutilized. Not that much happened in space.",
+        imgSrc: "/images/tb3.webp",
     },
     {
         id: 4,
@@ -28,6 +31,7 @@ const testItems = [
         priceInCents: 9900,
         imgColor: "yellow",
         description: "Did you know its grippers were sensitive enough to pick up an egg without breaking it?",
+        imgSrc: "/images/tb4.webp",
     },
     {
         id: 5,
@@ -35,6 +39,7 @@ const testItems = [
         priceInCents: 25000,
         imgColor: "grey",
         description: "Important, but not that interesting to be honest",
+        imgSrc: "/images/tb5.webp",
     },
     {
         id: 6,
@@ -42,6 +47,7 @@ const testItems = [
         priceInCents: 13000,
         imgColor: "brown",
         description: `Yes, it's technically not a Thunderbird, but it was pretty important`,
+        imgSrc: "/images/mole.webp",
     },
 ];
 

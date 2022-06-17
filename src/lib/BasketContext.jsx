@@ -3,8 +3,6 @@ import { createContext, useCallback, useReducer } from "react";
 export const BasketContext = createContext();
 
 const reducer = (state, action) => {
-    console.log("state: " + JSON.stringify(state));
-    console.log("action: " + JSON.stringify(action));
     let newState = [...state];
     const indexOfItem = state.findIndex((item) => item.id === action.item.id);
 
@@ -29,7 +27,6 @@ const reducer = (state, action) => {
             break;
     }
 
-    console.log("newState: " + JSON.stringify(newState));
     return newState.filter((item) => item.quantity > 0);
 };
 
