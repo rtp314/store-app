@@ -1,12 +1,12 @@
 import React from "react";
 
-export default function BasketItem({ item, setBasketItems }) {
+export default function BasketItem({ item, dispatch }) {
     function removeItem() {
-        setBasketItems((prev) => prev.filter((basketItem) => basketItem !== item));
+        dispatch({ type: "remove", item });
     }
 
     return (
-        <div className='basket-item'>
+        <>
             {item.imgSrc ? (
                 <img className='basket-image' src={item.imgSrc} />
             ) : (
@@ -16,10 +16,10 @@ export default function BasketItem({ item, setBasketItems }) {
             )}
             <span className='basket-name'>{item.name}</span>
             <span className='basket-quantity'>{item.quantity}</span>
-            <span className='basket-price'>{(item.quantity * item.priceInCents) / 100}</span>
+            <span className='basket-price'>${(item.quantity * item.priceInCents) / 100}</span>
             <span className='basket-remove' onClick={removeItem}>
                 X
             </span>
-        </div>
+        </>
     );
 }

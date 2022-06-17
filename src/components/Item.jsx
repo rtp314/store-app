@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { BasketContext } from "../lib/BasketContext";
 
 export default function Item({ item }) {
+    const { dispatch } = useContext(BasketContext);
+
     return (
         <div className='item'>
             {item.imgSrc ? (
@@ -10,9 +13,16 @@ export default function Item({ item }) {
                     No Image
                 </div>
             )}
-            <div className='item-description'>
-                <span className='item-name'>{item.name}</span>
-                <span className='item-price'>${item.priceInCents / 100}</span>
+            <div className='item-description flex-row'>
+                <div className='flex-column'>
+                    <span className='item-name'>{item.name}</span>
+                    <span className='item-price'>${item.priceInCents / 100}</span>
+                </div>
+                <div className='flex-column'>
+                    <button onClick={() => dispatch({ type: "add", item })} className='btn btn-primary'>
+                        Add to Cart
+                    </button>
+                </div>
             </div>
         </div>
     );
