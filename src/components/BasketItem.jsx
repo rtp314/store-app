@@ -1,7 +1,8 @@
 import React from "react";
 
 export default function BasketItem({ item, dispatch }) {
-    function removeItem() {
+    function removeItem(e) {
+        e.preventDefault();
         dispatch({ type: "remove", item });
     }
 

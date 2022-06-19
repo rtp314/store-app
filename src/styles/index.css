@@ -1,33 +1,4 @@
-@import "vars.css";
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--background);
-    font-family: "Poppins";
-}
-
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    background: var(--primary);
-    color: var(--background);
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem;
-}
-
-nav > div {
-    height: 100%;
-    width: 100%;
-    margin: 0 4rem;
-    font-size: 1.2rem;
-}
+@import "shared-styles.css";
 
 #basket-icon {
     width: 2rem;
@@ -59,6 +30,7 @@ nav > div {
 
 #basket {
     gap: 0.5em;
+    position: relative;
 }
 
 .basket-image {
@@ -66,9 +38,16 @@ nav > div {
     aspect-ratio: 4/3;
 }
 
-main {
-    max-width: 50rem;
-    margin: 4rem auto 0 auto;
+#basket-quantity {
+    position: absolute;
+    right: -0.5em;
+    bottom: -0.2em;
+    background: var(--contrast);
+    border-radius: 50%;
+    height: 1.2em;
+    aspect-ratio: 1/1;
+    display: grid;
+    place-content: center;
 }
 
 #catalog {
@@ -105,40 +84,4 @@ main {
 
 .item-name {
     font-weight: bold;
-}
-
-button:disabled:hover {
-    background-color: var(--secondary);
-}
-
-.flex-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.flex-column {
-    display: flex;
-    flex-direction: column;
-}
-
-.btn {
-    border: none;
-    padding: 0.5em 0.7em;
-    border-radius: 0.5em;
-    font-size: 1rem;
-    background-color: var(--secondary);
-    color: white;
-    transition: background-color 100ms;
-}
-
-.btn:hover {
-    background-color: var(--primary);
-}
-
-footer {
-    margin-top: 4rem;
-    width: 100%;
-    text-align: center;
 }
