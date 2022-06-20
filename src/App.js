@@ -8,7 +8,7 @@ function App() {
     const [location, setLocation] = useState("");
 
     useEffect(() => {
-        setLocation(window.location.pathname.slice(3));
+        setLocation(window.location.hash.slice(2));
     }, []);
 
     return (
