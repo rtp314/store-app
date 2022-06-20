@@ -58,9 +58,9 @@ export default function ItemContextProvider({ children }) {
     const [items, setItems] = useState([]);
     const store = { loading: isLoading, items: items };
 
-    // const fetchURL = "https://store-rtp314.herokuapp.com/items";
+    const fetchURL = "https://store-rtp314.herokuapp.com/items";
     // const fetchURL = window.location.href + "/items";
-    const fetchURL = "http://localhost:8000/items"; //for offline testing
+    // const fetchURL = "http://localhost:8000/items"; //for offline testing
 
     useEffect(() => {
         // setTimeout(() => {
