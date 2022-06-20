@@ -18,8 +18,6 @@ function App() {
             <Navbar />
             <Toast message={location} />
             <main>
-                <Popup />
-                <button onClick={show}>Click Me</button>
                 <Catalog />
             </main>
             <Footer />
