@@ -15,6 +15,7 @@
 body {
     background-color: var(--background);
     font-family: "Poppins";
+    position: relative;
 }
 
 nav {
@@ -27,6 +28,7 @@ nav {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem;
+    z-index: 10;
 }
 
 nav > div {

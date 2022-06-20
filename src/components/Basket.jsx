@@ -4,9 +4,9 @@ import { BasketContext } from "../lib/BasketContext";
 import { ReactComponent as BasketIcon } from "../icons/cart-svgrepo-com.svg";
 
 export default function Basket() {
-    // const fetchURL = "https://store-rtp314.herokuapp.com/items";
-    const fetchURL = window.location.href + "/items";
-    // const fetchURL = "http://localhost:8000/items"; for offline testing
+    // const fetchURL = "https://store-rtp314.herokuapp.com/create-stripe-session";
+    // const fetchURL = window.location.href + "/create-stripe-session";
+    const fetchURL = "http://localhost:8000/create-stripe-session"; //for offline testing
     const { basketItems, dispatch } = useContext(BasketContext);
     const [openBasket, setOpenBasket] = useState(false);
     const basketDetailsRef = useRef();
@@ -38,7 +38,10 @@ export default function Basket() {
             headers: { "Content-Type": "application/json" },
         })
             .then((res) => res.json())
-            .then((res) => (window.location = res))
+            .then((res) => {
+                console.log(res);
+                window.location = res;
+            })
             .catch((err) => console.log(err));
     }
 

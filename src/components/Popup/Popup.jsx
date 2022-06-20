@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
+import styles from "./Popup.module.css";
 
 let setTitleFn;
 let setContentsFn;
@@ -12,7 +13,6 @@ function updatePopup(title, contents) {
 }
 
 export default function Popup() {
-    const dialogRef = useRef();
     const [title, setTitle] = useState("");
     const [contents, setContents] = useState("");
 
@@ -21,21 +21,18 @@ export default function Popup() {
         setContentsFn = setContents;
     }, [setTitle, setContents]);
 
-    function showModal() {
-        dialogRef.current.showModal();
-    }
-
-    function hideModal() {
-        dialogRef.current.close();
-    }
-
     return (
         <>
-            <dialog id='popup' ref={dialogRef} className='modal' style={{ padding: 0 }}>
-                <div id='popup-wrapper'>
-                    {title && <h3>{title}</h3>}
-                    {typeof contents === "string" && <p>{contents}</p>}
-                    {Array.isArray(contents) && contents.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+            <dialog id='popup'>
+                <div id='popup-wrapper' className={styles.wrapper}>
+                    {title && <h3 className={styles.title}>{title}</h3>}
+                    {typeof contents === "string" && <p className={styles.paragraph}>{contents}</p>}
+                    {Array.isArray(contents) &&
+                        contents.map((paragraph, index) => (
+                            <p className={styles.paragraph} key={index}>
+                                {paragraph}
+                            </p>
+                        ))}
                 </div>
             </dialog>
         </>
